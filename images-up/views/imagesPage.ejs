@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Image Uploading</title>
+	<link rel="stylesheet" href= "i">
+</head>
+
+<body >
+
+	<h2>
+		<nav class="navbar">
+			<ul>
+				<li id="projectname">FarmStead!</li>
+				<li><a href="http://localhost:9999/mainpage.html">Home</a></li>
+				<li><a href="https://www.vit.edu/index.php/institute/about-trust" target="_blank">About</a></li>
+				<li><a href="https://www.vit.edu/" target="_blank">Contact us</a></li>
+				</ul>
+		</nav>
+	</h2>
+
+	<h1 id="fartit" style="text-align: center;"> FARMER</h1>
+	<h4 style="font-size: 25px; background-color: aqua; display: inline; border: rgb(61, 238, 185) solid 5px;"> <strong> Upload details:</strong></h4>
+	<hr>
+	<div id="upload">
+		<form action="/" method="POST" enctype="multipart/form-data">
+			<div style="text-align: center; size: 10px; padding: 10px; padding-right: 60px; font-size: 20px;">
+				<label id="name" class="des" for="name">NAME:</label>
+				<input type="text" id="name" placeholder="Name"
+					value="" name="name" required>
+			</div>
+			
+			<div style="text-align: center; size: 10px; padding: 10px; padding-right: 130px; font-size: 20px;">
+				<label id="name3" class="des" for="name">EMAIL:</label>
+				<input type="email" id="name3" placeholder="Email"
+					value="" name="name3" required>
+			</div>
+
+			<div style="text-align: center; size: 10px; padding: 10px; padding-right: 100px; font-size: 20px;">
+				<label id="name4" class="des" for="name">ADDRESS:</label>
+				<input type="text" id="name4" placeholder="Address"
+					value="" name="name4" required>
+			</div>
+
+			<div style="text-align: center; size: 10px; padding: 10px; padding-right: 80px; font-size: 20px;">
+				<label id="name2" class="des" for="name1">PHONE NO.:</label>
+				<input type="number" id="name2" placeholder="Number"
+					value="" name="name2" 
+			</div>
+			
+			<div style="text-align: center; size: 10px; padding: 10px; padding-left: 230px; font-size: 20px;">
+				<label id="name1" class="des" for="name1">DESCRIPTION:</label>
+				<textarea name="name1" id="name1" placeholder="DESCRIPTION"
+				value=""  cols="50" rows="3"> </textarea>
+			</div>
+
+			
+			
+			<div style="text-align: center;padding: 10px; font-size: 20px; padding-left: 100px;">
+				<label class="des" for="image">Upload Image</label>
+				<input type="file" id="image"
+					name="image" value="" required>
+			</div>
+			<div  id="btn" style="text-align: center;">
+				<button id="submit" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<hr>
+
+	<h1 id="custit" style="text-align: center;">CUSTOMER</h1>
+	<h4 style=" font-size: 25px;background-color: aqua; display: inline; border: rgb(38, 245, 217) solid 5px;">Uploaded Posts:</h4>
+
+	<div >
+		<% items.forEach(function(image) { %>
+		<div id="up">
+			<div style="text-align: center;">
+				<img id="image" width="600px" height="250px" style="border-radius:10px;" src="data:image/<%=image.img.contentType%>;base64,
+					<%=image.img.data.toString('base64')%>">
+				<div style="padding-left:500px; word-break: break-all;padding-right: 500px;">
+					<h5 style="text-align: center;">Name:<%= image.name %></h5>
+					<h5 style="text-align: center;">Phone no:<%= image.name2 %></h5>
+					<h5 style="text-align: center;">Email:<%= image.name3 %></h5>
+					<h5 style="text-align: center;">ADDRESS:<%= image.name4 %></h5>
+					<h4 style="text-align: center;">Description:<%= image.name1 %></h4>
+					
+
+
+                </div>
+			</div>
+		</div>
+		<% }) %>
+	</div>
+</body>
+
+
+
+<style>
+body{
+	background: url('pexels-veeterzy-114979.jpg') no-repeat center center fixed;
+	background-size: cover;        
+}
+input#search{
+  padding: 8px 17px;
+  margin-top: 10px;
+}
+.navbar{
+  background-color: rgb(201, 115, 241);
+  border-radius: 30px;
+}
+.navbar ul{
+  overflow: auto;
+}
+.navbar li{
+  float:left;
+  list-style: none; 
+  margin: 15px 20px;
+  
+}
+.navbar li a{
+  padding: 3px 3px;
+  text-decoration: none;
+  font-size:medium;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;;
+}
+.navbar li a:hover{
+  color: brown
+}
+.search{
+  float: right;
+  color: white;
+  padding: 0px 50px;
+}
+#search{
+border-radius: 43px;
+}
+.navbar input{
+  border: 2px solid rgb(248, 248, 248);
+  border-radius: 14px;
+  padding: 3px 17px;
+  width: 129px;
+}
+/* #upload{ */
+	/* background-color: bisque; */
+/* } */
+#up{
+	border: 3px solid black;
+	padding: 5px;
+	margin: 7px;
+	border-radius: 7px;
+	/* background-color: rgb(245, 249, 250); */
+}
+.des{
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: 600;
+}
+#desc{
+	font-size:x-large
+}
+label#name{
+	margin-left: -70px;
+}
+#des1{
+	padding-right: 75px;
+	padding-bottom: 25px;
+}
+#projectname{
+	font-family: Arial, Helvetica, sans-serif;;
+}
+a{
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+input#search{
+  padding: 5px 17px;
+  margin: 13px 0px 8px;
+}	
+ul{
+	font-family: Arial, Helvetica, sans-serif;
+}
+#fartit{
+	padding-top: 50px;
+}
+#custit{
+	padding-top: 25px;
+}
+#name, #des1{
+	border-radius: 5px;
+}
+#submit{
+	color: white;
+    cursor: pointer;
+    outline: none;
+    margin: 8px 0;
+    padding: 5px 15px;
+    border: 2px solid purple;
+    border-radius: 10px;
+    font-size: 18px;
+    background: none;
+    font-weight: bold
+}
+#submit:hover{
+	opacity: 0.5;
+  	color: purple; 
+  	background: white; 
+}
+inp#file-upload-button{
+	color: white;
+    cursor: pointer;
+    outline: none;
+    margin: 8px 0;
+    padding: 5px 15px;
+    border: 2px solid purple;
+    border-radius: 10px;
+    font-size: 18px;
+    background: none;
+    font-weight: bold
+}
+</style>
+</html>

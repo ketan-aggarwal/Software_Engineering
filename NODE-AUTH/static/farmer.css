@@ -1,0 +1,42 @@
+.navbar{
+    background-color: rgb(52, 153, 236);
+    border-radius: 30px;
+    
+ }
+ .navbar ul{
+    overflow: auto;
+ }
+ .navbar li{
+    float:left;
+    list-style: none; 
+    margin: 13px 20px;
+    
+ }
+ .navbar li a{
+    padding: 3px 3px;
+    text-decoration: none;
+    font-size:medium;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;;
+ }
+ .navbar li a:hover{
+    color: brown
+ }
+ .search{
+    float: right;
+    color: white;
+    padding: 10px 70px;
+ }
+ .navbar input{
+    border: 2px solid rgb(248, 248, 248);
+    border-radius: 14px;
+    padding: 3px 17px;
+    width: 129px;
+ }
+ body{
+    background-image: url("/images/federico-respini-sYffw0LNr7s-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+ }

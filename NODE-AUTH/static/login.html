@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+		<link rel="stylesheet" href= "farmerform.css">
+	</head>
+	<body>
+		<h2>
+			<nav class="navbar">
+				<ul>
+					<li id="projectname">FarmStead!</li>
+					<li><a href="/html files/index.html">Home</a></li>
+					<li><a href="https://www.vit.edu/index.php/institute/about-trust" target="_blank">About</a></li>
+					<li><a href="https://www.vit.edu/" target="_blank">Contact us</a></li>
+				</ul>
+			</nav>
+		</h2>
+		<h1 id="log">Login</h1>
+		<form id="login">
+			<input type="text" autocomplete="off" id="username" placeholder="Username" required/>
+			<input type="password" autocomplete="off" id="password" placeholder="Password" required/>
+			<input type="submit" id="btn" class="loginbtn" value="Submit Form" onClick="myFunction()"/>
+		</form>
+		<p id="re">Haven't Registered? <a href="index.html">Register Here</a></p>
+		<script>
+			// function myFunction() {
+			// 	window.location.href="localhost:3000";
+       		// 		}
+			const form = document.getElementById('login')
+			form.addEventListener('submit', login)
+
+			async function login(event) {
+				event.preventDefault()
+				const username = document.getElementById('username').value
+				const password = document.getElementById('password').value
+
+				const result = await fetch('/api/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					console.log('Got the token: ', result.data);
+					localStorage.setItem('token', result.data);
+					window.location.href="http://localhost:3000/";
+					alert('Success');
+				} else {
+					alert(result.error)
+				}
+			}
+		</script>
+	</body>
+</html>
